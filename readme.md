@@ -12,3 +12,9 @@
 ### commit 2
 1. same as above, added url/path in the handler function
 
+### commit 3
+1. Install express - npm install express
+2. .gitignore to ignore specific files
+3. Install nodemon - npm i nodemon (if not installed)
+4. create seperate handler for every routes/paths
+5. use get() for handling http request
