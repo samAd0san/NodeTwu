@@ -21,6 +21,12 @@
 6. nodemon server.js
 
 ### commit 4
-1. create a controller module (folder), add the routes files in it.
+1. create a controller module (folder), add the handler files in it.
 2. import the controller module to server.js and assign routes.
 3. install postman application from browser
+
+### commit 5
+1. create a routes module (folder), add the routes files in it.
+2. import the routes module to sever.js and remove ctrl module since
+   the routes module will handle it.
+3. const router = express.Router();
