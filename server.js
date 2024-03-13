@@ -11,5 +11,6 @@ app.listen(port,()=>{
     console.log(`The port is running on ${port}`);
 });
 
+app.use(express.json()); // Middleware to parse JSON request bodies (POST)
 app.use(homeRoutes);
 app.use(bookRoutes);

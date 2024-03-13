@@ -30,3 +30,6 @@
 2. import the routes module to sever.js and remove ctrl module since
    the routes module will handle it.
 3. const router = express.Router();
+
+### commit 6
+1. CRUD Operations
