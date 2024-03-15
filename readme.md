@@ -33,3 +33,15 @@
 
 ### commit 6
 1. CRUD Operations
+
+### commit 7
+1. DataBase Drivers - It is a s/w component which allows applications to interact with the database,
+acts as a bridge b/w application and a database
+2. Install mongodb from browser
+3. Install the mongo shell 
+4. npm install mongoose
+5. In the server.js file
+   const mongoose = require('mongoose')
+6. mongoose.connect('mongodb://localhost:27017/<db-name>'); 
+   It is used to establish a connection between a Node.js application and a MongoDB database using Mongoose, which is an ODM (Object Data Modeling) library for MongoDB and Node.js.
+7.    
