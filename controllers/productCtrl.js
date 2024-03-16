@@ -6,8 +6,11 @@ const get = async(req,res) => {
         const page = req.params.page || 1;
         const size = req.params.size || 10;
         const search = req.query.search;
-        // /api/products/page/1/size/10?search=samsung&brand=note
-        const data = await ProductRepo.get(page,size,search);
+        const sort = req.query.sort;
+        const direction = req.query.direction || 'asc';
+
+        // /api/products/page/2/size/10?sort=discount&direction=desc
+        const data = await ProductRepo.get(page,size,search,sort,direction);
         // For MetaDate of Pagination
         // It'll return only total search elements and page
         const totalElements = await ProductRepo.getCount(search);

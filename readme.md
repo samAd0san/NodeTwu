@@ -60,3 +60,11 @@ acts as a bridge b/w application and a database
 	 2:    11 - 20 (2-1) * 10 = 10 (skip)
 	 3:    21 - 30 (3-1) * 10 = 20 (skip)
 	 4:    31 - 40 (4-1) * 10 = 30 (skip)
+
+### commit 11
+1. Search via model and brand 
+2. Implemented using RegExp in productRepo.js
+
+### commit 12
+http://localhost:3000/api/products/page/2/size/10?sort=discount&direction=desc
+1. Sorting via attributes i.e in asc/desc order
