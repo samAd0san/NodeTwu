@@ -2,13 +2,23 @@ const ProductRepo = require('../repositories/productRepo')
 
 const get = async(req,res) => {
     try{
-        // user will enter param it not entered default 1/10 (page/size)
+        // user will enter param it not entered default 1/10 (page/sizea)
         const page = req.params.page || 1;
         const size = req.params.size || 10;
 
         const data = await ProductRepo.get(page,size);
+        // For MetaDate of Pagination
+        const totalRows = await ProductRepo.getCount();
+        const totalPages = Math.ceil(totalRows / size);
+
+        const response = {
+            data,
+            // metadata
+            totalRows,
+            totalPages,
+        }
         res.status(200);
-        res.json(data);
+        res.json(response);
     }catch(err){
         res.status(500);
         res.send('Internal Server Error');
