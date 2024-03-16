@@ -44,4 +44,10 @@ acts as a bridge b/w application and a database
    const mongoose = require('mongoose')
 6. mongoose.connect('mongodb://localhost:27017/<db-name>'); 
    It is used to establish a connection between a Node.js application and a MongoDB database using Mongoose, which is an ODM (Object Data Modeling) library for MongoDB and Node.js.
-7.    
+
+### commit 8
+1. CRUD in MongoDb.
+2. Used Async/Await.
+
+### commit 9
+1. Added repository layer to refactor the code.
