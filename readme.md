@@ -68,3 +68,6 @@ acts as a bridge b/w application and a database
 ### commit 12
 http://localhost:3000/api/products/page/2/size/10?sort=discount&direction=desc
 1. Sorting via attributes i.e in asc/desc order
+
+### commit 13
+1. Refactoring get endpoint, property destructure

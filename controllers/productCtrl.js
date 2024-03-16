@@ -2,19 +2,21 @@ const ProductRepo = require('../repositories/productRepo')
 
 const get = async(req,res) => {
     try{
-        // user will enter param it not entered default 1/10 (page/sizea)
-        const page = req.params.page || 1;
-        const size = req.params.size || 10;
-        const search = req.query.search;
-        const sort = req.query.sort;
-        const direction = req.query.direction || 'asc';
+        const options = {
+            // user will enter param it not entered default 1/10 (page/sizea)
+             page : req.params.page || 1,
+             size : req.params.size || 10,
+             search : req.query.search,
+             sort : req.query.sort,
+             direction : req.query.direction || 'asc',
+        }
 
         // /api/products/page/2/size/10?sort=discount&direction=desc
-        const data = await ProductRepo.get(page,size,search,sort,direction);
+        const data = await ProductRepo.get(options);
         // For MetaDate of Pagination
         // It'll return only total search elements and page
-        const totalElements = await ProductRepo.getCount(search);
-        const totalPages = Math.ceil(totalElements / size);
+        const totalElements = await ProductRepo.getCount(options.search);
+        const totalPages = Math.ceil(totalElements / options.size);
 
         const response = {
             data,
