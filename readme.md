@@ -50,4 +50,13 @@ acts as a bridge b/w application and a database
 2. Used Async/Await.
 
 ### commit 9
-1. Added repository layer to refactor the code.
+1. A repository layer is an abstraction that separates database operations from the rest of the application logic.
+2. Added repository layer to refactor the code.
+
+### commit 10
+1. Implementing Pagination
+2. page     elements         skip
+	 1:    1 - 10 (1-1) * 10 = 0 (skip)
+	 2:    11 - 20 (2-1) * 10 = 10 (skip)
+	 3:    21 - 30 (3-1) * 10 = 20 (skip)
+	 4:    31 - 40 (4-1) * 10 = 30 (skip)

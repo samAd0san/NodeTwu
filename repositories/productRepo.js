@@ -1,7 +1,12 @@
 const Product = require('../models/productModels');
 
-const get = () => {
-    return Product.find({});
+const get = (currentPage,size) => {
+    const rowsToSkip = (currentPage - 1) * size;
+
+    return Product
+    .find({},{__v : 0})
+    .skip(rowsToSkip)
+    .limit(size)
 }
 
 const getById = (id) => {

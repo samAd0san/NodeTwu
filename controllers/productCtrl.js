@@ -2,7 +2,11 @@ const ProductRepo = require('../repositories/productRepo')
 
 const get = async(req,res) => {
     try{
-        const data = await ProductRepo.get();
+        // user will enter param it not entered default 1/10 (page/size)
+        const page = req.params.page || 1;
+        const size = req.params.size || 10;
+
+        const data = await ProductRepo.get(page,size);
         res.status(200);
         res.json(data);
     }catch(err){
