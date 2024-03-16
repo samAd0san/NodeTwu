@@ -5,21 +5,24 @@ const get = async(req,res) => {
         // user will enter param it not entered default 1/10 (page/sizea)
         const page = req.params.page || 1;
         const size = req.params.size || 10;
-
-        const data = await ProductRepo.get(page,size);
+        const search = req.query.search;
+        // /api/products/page/1/size/10?search=samsung&brand=note
+        const data = await ProductRepo.get(page,size,search);
         // For MetaDate of Pagination
-        const totalRows = await ProductRepo.getCount();
-        const totalPages = Math.ceil(totalRows / size);
+        // It'll return only total search elements and page
+        const totalElements = await ProductRepo.getCount(search);
+        const totalPages = Math.ceil(totalElements / size);
 
         const response = {
             data,
             // metadata
-            totalRows,
+            totalElements,
             totalPages,
         }
         res.status(200);
         res.json(response);
     }catch(err){
+        console.error(err)
         res.status(500);
         res.send('Internal Server Error');
     }

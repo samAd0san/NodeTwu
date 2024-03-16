@@ -1,14 +1,25 @@
 const Product = require('../models/productModels');
 
-const getCount = () => {
-    return Product.countDocuments();
+const getCount = (search) => {
+    const filter = getFilterExp(search)
+    return Product.countDocuments(filter);
 };
 
-const get = (currentPage,size) => {
+const getFilterExp = (search) => {
+    return {
+        $or: [
+            {brand : new RegExp(search,'i')},
+            {model : new RegExp(search,'i')}
+        ]
+    };
+};
+
+const get = (currentPage,size,search) => {
     const rowsToSkip = (currentPage - 1) * size;
+    const filter = getFilterExp(search);
 
     return Product
-    .find({},{__v : 0})
+    .find(filter,{__v : 0})
     .skip(rowsToSkip)
     .limit(size)
 };
