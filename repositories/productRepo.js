@@ -15,6 +15,7 @@ const getFilterExp = (search) => {
 };
 
 const get = (options) => {
+    // Property Destructure
     const { currentPage,size,search,sort,direction } = options;
     const rowsToSkip = (currentPage - 1) * size;
     const filter = getFilterExp(search);

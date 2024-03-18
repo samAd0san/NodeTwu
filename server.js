@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const homeRoutes = require('./routes/homeRoutes');
 const bookRoutes = require('./routes/bookRoutes');
 const productRoutes = require('./routes/productRoutes');
+const userRoutes = require('./routes/userRoutes');
 
 const app = express();
 
@@ -21,6 +22,7 @@ console.log('db Connected');
 app.use(homeRoutes);
 app.use(bookRoutes);
 app.use('/api/products',productRoutes);
+app.use('/api/signup',userRoutes);
 
 app.use((req,res)=>{
     res.status(404).send('Not Found');
