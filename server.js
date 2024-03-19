@@ -22,7 +22,7 @@ console.log('db Connected');
 app.use(homeRoutes);
 app.use(bookRoutes);
 app.use('/api/products',productRoutes);
-app.use('/api/signup',userRoutes);
+app.use('/api/users',userRoutes);
 
 app.use((req,res)=>{
     res.status(404).send('Not Found');

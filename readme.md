@@ -71,3 +71,12 @@ http://localhost:3000/api/products/page/2/size/10?sort=discount&direction=desc
 
 ### commit 13
 1. Refactoring get endpoint, property destructure
+
+### commit 14
+1. Implementing SIGNUP 
+2. Preventing duplicate email input by the user
+
+### commit 15
+1. npm install bcrypt
+2. hashing the password using bcrypt
+3. Implementing SIGNIN
