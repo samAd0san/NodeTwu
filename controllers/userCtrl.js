@@ -1,6 +1,9 @@
 const bcrypt = require('bcrypt');
 const UserRepo = require('../repositories/userRepo');
 
+const jwt = require('jsonwebtoken');
+const config = require('../config'); // It'll take index.js as its default path
+
 const emailExists = (err) => err.message 
     && err.message.indexOf('duplicate key error') > -1;
 
@@ -43,10 +46,11 @@ const signin = async(req,res) => {
         if(isValid) {
             res.status(200).json({
                 username: dbUser.username,
-                password: dbUser.password
+                password: dbUser.password, // optional not required to mention
+                token : jwt.sign({email : dbUser.email},config.jwtSecret,{expiresIn: '1d'})
             });
         }else{
-            // If the password entered is incorrect
+            // If the password entered is inco  rrect
             res.status(401).send('Invalid password');
         }
     }catch(err){

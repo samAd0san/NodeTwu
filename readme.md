@@ -86,10 +86,24 @@ http://localhost:3000/api/products/page/2/size/10?sort=discount&direction=desc
 3. Implementing SIGNIN
 
 ### commit 17
-1. Authentication (Basic Auth)
-2. middleware/auth.js
-3. server.js (add middleware)
-4. Now, in postman (GET)
+Basic Authentication
+1. middleware/auth.js
+2. server.js (add middleware)
+3. Now, in postman (GET)
 Authorization -> basic auth -> username = admin , password = password
 URL: //localhost:3000/books or products
 - we can access '/' and 'signin' 'signup' endpoint without authentication
+
+### commit 18
+Token Authentication
+1. install jwt 
+   npm i jsonwebtoken
+2. create config/index.js -> for env variable i.e secret key
+3. To generate Temparory tokens 
+   jwt.sign(payload,jwtSecretKey,expiry date)
+4. To verify The token (which is passed in Bearer token)
+   jwt.verify(generatedToken,jwtSecretKey,callback(err,decoded))
+5. To send Request in postman
+   5.1 - (POST) /signin, enter credentials, the token will be generated, copy the generated token.
+   5.2 - (GET) goto Authorization -> type (Bearer Token) -> paste token
+   5.3 - (GET) access endpoint /books or /products

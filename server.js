@@ -23,7 +23,8 @@ console.log('db Connected');
 app.use(homeRoutes);
 app.use('/api/v1/users',userRoutes);
 
-app.use(auth.basicAuth);
+// app.use(auth.basicAuth);
+app.use(auth.tokenAuth);
 
 app.use(bookRoutes);
 app.use('/api/v1/products',productRoutes);
