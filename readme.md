@@ -61,22 +61,35 @@ acts as a bridge b/w application and a database
 	 3:    21 - 30 (3-1) * 10 = 20 (skip)
 	 4:    31 - 40 (4-1) * 10 = 30 (skip)
 
-### commit 11
+### commit 11 
+1. Added Pagination meta data
+- Total no of rows and pages
+
+### commit 12
 1. Search via model and brand 
 2. Implemented using RegExp in productRepo.js
 
-### commit 12
+### commit 13
 http://localhost:3000/api/products/page/2/size/10?sort=discount&direction=desc
 1. Sorting via attributes i.e in asc/desc order
 
-### commit 13
+### commit 14
 1. Refactoring get endpoint, property destructure
 
-### commit 14
+### commit 15
 1. Implementing SIGNUP 
 2. Preventing duplicate email input by the user
 
-### commit 15
+### commit 16
 1. npm install bcrypt
-2. hashing the password using bcrypt
+2. hashing the password using bcrypt (SIGNUP)
 3. Implementing SIGNIN
+
+### commit 17
+1. Authentication (Basic Auth)
+2. middleware/auth.js
+3. server.js (add middleware)
+4. Now, in postman (GET)
+Authorization -> basic auth -> username = admin , password = password
+URL: //localhost:3000/books or products
+- we can access '/' and 'signin' 'signup' endpoint without authentication
