@@ -1,7 +1,9 @@
 const ProductRepo = require('../repositories/productRepo')
+const logger = require('../utils/logger');
 
 const get = async(req,res) => {
     try{
+        logger.info('Fetching Products'); // logger.info() is used to log informational messages in an application.
         const options = {
             // user will enter param it not entered default 1/10 (page/sizea)
              page : req.params.page || 1,

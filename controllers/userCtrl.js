@@ -1,5 +1,6 @@
 const bcrypt = require('bcrypt');
 const UserRepo = require('../repositories/userRepo');
+const logger = require('../utils/logger');
 
 const jwt = require('jsonwebtoken');
 const config = require('../config'); // It'll take index.js as its default path
@@ -9,6 +10,7 @@ const emailExists = (err) => err.message
 
 const signup = async(req,res) => {
     try{
+        logger.info('signup started');
         const playload = req.body;
         playload.createdDate = new Date();
         playload.password = await bcrypt.hash(playload.password,2);
@@ -18,7 +20,11 @@ const signup = async(req,res) => {
     
         res.status(201).send('Created');
     }catch(err) {
-        console.error(err.message); // If there a duplicate email is entered by the user, the database will throw an error message,
+        logger.error({
+            location : 'userCtrl',
+            err : err
+        });
+        // console.error(err.message); // If there a duplicate email is entered by the user, the database will throw an error message,
         // E11000 duplicate key error collection: play-db.users index: email_1 dup key: { email: "user@cgc.com" }rs index: email_1 dup key: { email: "user@cgc.com" }
         // this error message is detected by the 'emailExists' and then gives status 400.   
         if(emailExists(err)) {

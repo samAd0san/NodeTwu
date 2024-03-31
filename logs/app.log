@@ -1,0 +1,13 @@
+::1 - - [31/Mar/2024:07:22:56 +0000] "GET /books HTTP/1.1" 200 154 "-" "PostmanRuntime/7.37.0"
+::1 - - [31/Mar/2024:07:23:14 +0000] "GET /products HTTP/1.1" 404 9 "-" "PostmanRuntime/7.37.0"
+{"name":"logger-instance","hostname":"LAPTOP-TT718LRE","pid":13848,"level":30,"msg":"Fetching Products","time":"2024-03-31T07:23:25.810Z","v":0}
+::1 - - [31/Mar/2024:07:23:25 +0000] "GET /api/v1/products HTTP/1.1" 200 1610 "-" "PostmanRuntime/7.37.0"
+::1 - - [31/Mar/2024:07:23:49 +0000] "POST /users/signup HTTP/1.1" 404 9 "-" "PostmanRuntime/7.37.0"
+::1 - - [31/Mar/2024:07:24:09 +0000] "POST /ap1/v1/users/signup HTTP/1.1" 404 9 "-" "PostmanRuntime/7.37.0"
+{"name":"logger-instance","hostname":"LAPTOP-TT718LRE","pid":8888,"level":30,"msg":"signup started","time":"2024-03-31T07:24:49.636Z","v":0}
+{"name":"logger-instance","hostname":"LAPTOP-TT718LRE","pid":8888,"level":50,"location":"userCtrl","err":{"index":0,"code":11000,"keyPattern":{"email":1},"keyValue":{"email":"admin@gmail.com"}},"msg":"E11000 duplicate key error collection: play-db.users index: email_1 dup key: { email: \"admin@gmail.com\" }","time":"2024-03-31T07:24:49.680Z","v":0}
+::1 - - [31/Mar/2024:07:24:49 +0000] "POST /api/v1/users/signup HTTP/1.1" 400 20 "-" "PostmanRuntime/7.37.0"
+{"name":"logger-instance","hostname":"LAPTOP-TT718LRE","pid":8888,"level":30,"msg":"signup started","time":"2024-03-31T07:25:33.217Z","v":0}
+::1 - - [31/Mar/2024:07:25:33 +0000] "POST /api/v1/users/signup HTTP/1.1" 201 7 "-" "PostmanRuntime/7.37.0"
+::1 - - [31/Mar/2024:07:26:25 +0000] "POST /books HTTP/1.1" 400 11 "-" "PostmanRuntime/7.37.0"
+::1 - - [31/Mar/2024:07:26:28 +0000] "GET /books HTTP/1.1" 200 154 "-" "PostmanRuntime/7.37.0"
