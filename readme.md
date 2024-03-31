@@ -70,6 +70,7 @@ acts as a bridge b/w application and a database
 2. Implemented using RegExp in productRepo.js
 
 ### commit 13
+http://localhost:3000/api/v1/products/page/1/size/10?search=apple&model=IphoneX&sort=discount&direction=desc
 http://localhost:3000/api/products/page/2/size/10?sort=discount&direction=desc
 1. Sorting via attributes i.e in asc/desc order
 
@@ -107,3 +108,17 @@ Token Authentication
    5.1 - (POST) /signin, enter credentials, the token will be generated, copy the generated token.
    5.2 - (GET) goto Authorization -> type (Bearer Token) -> paste token
    5.3 - (GET) access endpoint /books or /products
+
+### commit 19
+Authorizing (giving permission) to the user to delete the product, setting the role - 'Admin'
+1. add role in userModel
+2. jwt.sign
+3. jwt.verify
+4. productRoutes.js 
+
+- Steps to execute
+1. create the user 
+2. first signin (if tokenAuth) via post
+3. then cp the token and paste in Authorization -> bearer token
+4. access /products endpoint
+5. try to perform (DELETE) operation if the user role is admin

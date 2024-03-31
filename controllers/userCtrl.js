@@ -47,7 +47,7 @@ const signin = async(req,res) => {
             res.status(200).json({
                 username: dbUser.username,
                 password: dbUser.password, // optional not required to mention
-                token : jwt.sign({email : dbUser.email},config.jwtSecret,{expiresIn: '1d'})
+                token : jwt.sign({email : dbUser.email, role : dbUser.role},config.jwtSecret,{expiresIn: '1d'})
             });
         }else{
             // If the password entered is inco  rrect

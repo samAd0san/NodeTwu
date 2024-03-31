@@ -46,13 +46,20 @@ function tokenAuth(req,res,next) {
         if(err){
             res.status(401).send('Unauthorized');
         }else{
-            console.log(decoded); // { email: 'admin@cgc.com', iat: 1711017469, exp: 1711103869 }
+            req.role = decoded.role; // Assigning the value (role) of decoded to req
+            console.log(decoded); // { email: 'admin@gmail.com', role: 'User', iat: 1711866680, exp: 1711953080 }
             next();
         }
     });
 }
 
+function authorizeAdmin(req,res,next){
+    if(req.role === 'Admin') next(); // req.role will be Admin/User depends
+    else res.status(403).send('Forbidden');
+}
+
 module.exports = {
     basicAuth,
-    tokenAuth
+    tokenAuth,
+    authorizeAdmin,
 }
