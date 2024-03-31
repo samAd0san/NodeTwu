@@ -1,5 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const morgan = require('morgan');
+const fs = require('fs');
 
 //Importing modules from routes folder
 const homeRoutes = require('./routes/homeRoutes');
@@ -14,6 +16,17 @@ const port = 3000;
 app.listen(port,()=>{
     console.log(`The port is running on ${port}`);
 });
+
+// Different levels of loggings in morgan 
+app.use(morgan('tiny'));
+app.use(morgan('short'));
+app.use(morgan('common'));
+app.use(morgan('dev'));
+app.use(morgan('combined'));
+
+// Saving the 'combined' level logging in the /logs/request.logs file
+const fsStream = fs.createWriteStream(__dirname + "/logs/request.log", {flags : 'a'});
+app.use(morgan('combined',{ stream : fsStream }));
 
 app.use(express.json()); // Middleware to parse JSON request bodies (POST)
 
